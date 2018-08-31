@@ -1,0 +1,26 @@
+{
+	"name": "piano",
+	"version": "1.0.0",
+	"description": "Piano app",
+	"main": "dist/server.js",
+	"author": "Peter Wildberger",
+	"license": "MIT",
+	"dependencies": {
+		"pizzicato": "^0.6.3"
+	},
+	"devDependencies": {
+		"@types/express": "^4.16.0",
+		"@types/node": "^10.9.4",
+		"body-parser": "^1.18.3",
+		"browserify": "^16.2.2",
+		"del": "^3.0.0",
+		"express": "^4.16.3",
+		"gulp": "^3.9.1",
+		"gulp-sass": "^4.0.1",
+		"gulp-typescript": "^5.0.0-alpha.3",
+		"ts-node": "^7.0.1",
+		"tsify": "^4.0.0",
+		"typescript": "^3.0.3",
+		"vinyl-source-stream": "^2.0.0"
+	}
+}
