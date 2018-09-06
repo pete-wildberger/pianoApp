@@ -1,7 +1,6 @@
 import * as Pz from 'pizzicato';
-// A_FOUR * (a)**n to get a note
 
-export class App {
+export class Piano {
 	private TOP_KEYS: string[] = ['q', 'w', '3', 'e', '4', 'r', 't', '6', 'y', '7', 'u', '8', 'i', 'o', '0', 'p', '-', '[', '+', ']', '\\'];
 	private sineWaves: { [key: string]: any } = {};
 	constructor() {
@@ -16,7 +15,7 @@ export class App {
 				source: 'wave',
 				options: {
 					type: 'sine',
-					frequency: A_FOUR * a ** n
+					frequency: A_FOUR * a ** n // A_FOUR * (a)**n to get a note
 				}
 			});
 		};
@@ -33,14 +32,30 @@ export class App {
 		}
 	};
 	private listen = () => {
+		const letters = [].slice.call(document.getElementsByClassName('letter'));
+		const duals = [].slice.call(document.getElementsByClassName('dual'));
+		const keys = letters.concat(duals);
+		console.log(keys);
 		document.addEventListener('keydown', e => {
 			const target: string = e.key;
+			for (let key of keys) {
+				if (key.textContent.includes(target.toUpperCase())) {
+					key.style.backgroundColor = 'red';
+					break;
+				}
+			}
 			if (this.TOP_KEYS.includes(target)) {
 				this.sineWaves[target].play();
 			}
 		});
 		document.addEventListener('keyup', e => {
 			const target: string = e.key;
+			for (let key of keys) {
+				if (key.textContent.includes(target.toUpperCase())) {
+					key.style.backgroundColor = '#333';
+					break;
+				}
+			}
 			if (this.TOP_KEYS.includes(target)) {
 				this.sineWaves[target].stop();
 			}

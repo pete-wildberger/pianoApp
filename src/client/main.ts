@@ -1,5 +1,5 @@
-import { App } from './classes/App.class';
+import { Piano } from './classes/Piano.class';
 (function main() {
 	console.log('Piano App running');
-	const app = new App();
+	const piano = new Piano();
 })();
